@@ -22,22 +22,22 @@ include_once __DIR__ . '/program.php';
 
 <body>
     <div id="app">
-        <div class="mc_wrapper text">
-            <header class="d-flex align-items-center d-flex justify-content-between px-5">
-                <img src="mobile-logo.png" alt="">
-                <h1>Dream Team Presentation</h1>
+        <div class="mc_wrapper text text-bg-dark">
+            <header class="d-flex align-items-center d-flex justify-content-between px-5 text-bg-dark">
+                <p>Dream Team presents</p>
+                <h1>Array Functions</h1>
                 <button class="btn btn-success" @click="hello">Start</button>
             </header>
             <main class="container">
-                <div class="row row-cols-3">
-                    <?php foreach ($array_combination as $key => $item){ ?>
+                <div class="row row-cols-3 w-75 mx-auto">
+                    <?php foreach ($array_combination as $key => $item) { ?>
                         <div class="col p-3 text-center">
-                            <div class="card">
-                                <img src="mobile-logo.png" alt="">
-                                <div class="back d-flex flex-column align-items-center justify-content-center">
-                                    <h2> <?php echo $key ?></h2>
+                            <div class="card" :class="{'animation': start}">
+                                <img :class="{'opacity': start}" src="mobile-logo.png" alt="">
+                                <div class="back d-flex flex-column align-items-center justify-content-center" :class="{'no_opacity': start}">
+                                    <h2 class="fs-1 text-success"> <?php echo $key ?></h2>
                                     <p>spiega</p>
-                                    <h3> <?php echo $item ?></h3>
+                                    <h3 class="text-decoration-underline text-dark"> <?php echo $item ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -47,9 +47,101 @@ include_once __DIR__ . '/program.php';
             </main>
         </div>
     </div>
-    
+    <div class="text-bg-dark ">
+        <!-- <div class="text-bg-secondary p-1 d-flex">
+            <p class="col-4">$double_team</p>
+            <p class="col-8"> Descrizione: primo array di partenza</p>
+        </div> -->
+        <table class="table table-light table-striped">
+            <thead>
+                <th scope="col">Variabile</th>
+                <th scope="col">Descrizione</th>
+            </thead>
+            <tbody>
+                <td>$double_team</td>
+                <td>Primo array di partenza</td>
+            </tbody>
+        </table>
+        <?php var_dump($double_team) ?>
+        <table class="table table-light table-striped">
+            <thead>
+                <th scope="col">Variabile</th>
+                <th scope="col">Descrizione</th>
+            </thead>
+            <tbody>
+                <td>$arguments</td>
+                <td>Secondo array di partenza</td>
+            </tbody>
+        </table>
+        <?php var_dump($arguments) ?>
+        <table class="table table-light table-striped">
+            <thead>
+                <th scope="col">Funzione</th>
+                <th scope="col">Descrizione</th>
+            </thead>
+            <tbody>
+                <td>array_unique(array)</td>
+                <td>Elimina i valori che si ripetono in un array</td>
+            </tbody>
+        </table>
+        <?php var_dump(array_unique($double_team)) ?>
+        <table class="table table-light table-striped">
+            <thead>
+                <th scope="col">Funzione</th>
+                <th scope="col">Descrizione</th>
+            </thead>
+            <tbody>
+                <td>array_rand(array, int)</td>
+                <td>Pesca casualmente una o più chiavi in un array</td>
+            </tbody>
+        </table>
+        <?php  var_dump($index_array) ?>
+        <table class="table table-light table-striped">
+            <thead>
+                <th scope="col">Variabile</th>
+                <th scope="col">Descrizione</th>
+            </thead>
+            <tbody>
+                <td>$selected_arguments</td>
+                <td>Crea un array con lo stesso numero di elementi di $dream_team</td>
+            </tbody>
+        </table>
+        <?php var_dump($selected_arguments) ?>
+        <table class="table table-light table-striped">
+            <thead>
+                <th scope="col">Funzione</th>
+                <th scope="col">Descrizione</th>
+            </thead>
+            <tbody>
+                <td>shuffle(array)</td>
+                <td>Mischia la posizione degli elementi in un array</td>
+            </tbody>
+        </table>
+        <?php var_dump($dream_team) ?>
+        <table class="table table-light table-striped">
+            <thead>
+                <th scope="col">Funzione</th>
+                <th scope="col">Descrizione</th>
+            </thead>
+            <tbody>
+                <td>$array_combine(array $keys, array $values)</td>
+                <td>dati due array, crea un nuovo array utilizzando il valore delle chiavi del primo array come 'key', e il valore delle chiavi del secondo array come 'value' corrispondente</td>
+            </tbody>
+        </table>
+        <?php var_dump($array_combination) ?>
+        <table class="table table-light table-striped">
+            <thead>
+                <th scope="col">Funzione</th>
+                <th scope="col">Descrizione</th>
+            </thead>
+            <tbody>
+                <td>$array_combine(array $keys, array $values)</td>
+                <td>Per ogni elemento in $array_combination stampo il risultato tramite print_result()</td>
+            </tbody>
+        </table>
+        <?php var_dump(array_walk($array_combination, "print_result")) ?>
+    </div>
     <script src="js/script.js"></script>
 </body>
 
 </html>
-
