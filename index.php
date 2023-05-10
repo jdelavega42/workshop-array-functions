@@ -23,35 +23,36 @@ include_once __DIR__ . '/program.php';
 <body>
     <div id="app">
         <div class="mc_wrapper text text-bg-dark">
-            <header class="d-flex align-items-center d-flex justify-content-between px-5 text-bg-dark">
+            <header class="d-flex align-items-center d-flex justify-content-between px-5">
                 <p>Dream Team presents</p>
                 <h1>Array Functions</h1>
                 <button class="btn btn-success" @click="hello">Start</button>
             </header>
-            <main class="container">
+            <main class="container h-100 p-3">
                 <div class="row row-cols-3 w-75 mx-auto">
                     <?php foreach ($array_combination as $key => $item) { ?>
-                        <div class="col p-3 text-center">
-                            <div class="card" :class="{'animation': start}">
-                                <img :class="{'opacity': start}" src="mobile-logo.png" alt="">
-                                <div class="back d-flex flex-column align-items-center justify-content-center" :class="{'no_opacity': start}">
-                                    <h2 class="fs-1 text-success"> <?php echo $key ?></h2>
-                                    <p>spiega</p>
-                                    <h3 class="text-decoration-underline text-dark"> <?php echo $item ?></h3>
+
+                    <div class="col p-3 flip-card">
+                        <div class="flip-card-inner" :class="{'animation': start}">
+                            <div class="flip-card-front ">
+                                <img src="mobile-logo.png" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back text-bg-success d-flex align-items-center justify-content-center">
+                                <div class="mini-container">
+                                    <h2> <?php echo $key ?></h2>    
+                                    <p class="text-success-emphasis">spiega</p>
+                                    <p class="fw-bolder"><?php echo $item ?></p>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <?php } ?>
-
                 </div>
             </main>
         </div>
     </div>
     <div class="text-bg-dark ">
-        <!-- <div class="text-bg-secondary p-1 d-flex">
-            <p class="col-4">$double_team</p>
-            <p class="col-8"> Descrizione: primo array di partenza</p>
-        </div> -->
+
         <table class="table table-light table-striped">
             <thead>
                 <th scope="col">Variabile</th>
@@ -95,7 +96,7 @@ include_once __DIR__ . '/program.php';
                 <td>Pesca casualmente una o più chiavi in un array</td>
             </tbody>
         </table>
-        <?php  var_dump($index_array) ?>
+        <?php var_dump($index_array) ?>
         <table class="table table-light table-striped">
             <thead>
                 <th scope="col">Variabile</th>
@@ -125,7 +126,7 @@ include_once __DIR__ . '/program.php';
             </thead>
             <tbody>
                 <td>$array_combine(array $keys, array $values)</td>
-                <td>dati due array, crea un nuovo array utilizzando il valore delle chiavi del primo array come 'key', e il valore delle chiavi del secondo array come 'value' corrispondente</td>
+                <td>Dati due array, crea un nuovo array utilizzando il valore delle chiavi del primo array come 'key', e il valore delle chiavi del secondo array come 'value' corrispondente</td>
             </tbody>
         </table>
         <?php var_dump($array_combination) ?>
@@ -135,11 +136,16 @@ include_once __DIR__ . '/program.php';
                 <th scope="col">Descrizione</th>
             </thead>
             <tbody>
-                <td>$array_combine(array $keys, array $values)</td>
-                <td>Per ogni elemento in $array_combination stampo il risultato tramite print_result()</td>
+                <td>$array_walk(array, function)</td>
+                <td>Per ogni elemento in un array eseguo una funzione utilizzando $key e $value di ogni elemento nell'array</td>
             </tbody>
         </table>
-        <?php var_dump(array_walk($array_combination, "print_result")) ?>
+        <?php
+        function print_result($value, $key)
+        {
+            echo "$key spiega $value <br>";
+        };
+        array_walk($array_combination, "print_result") ?>
     </div>
     <script src="js/script.js"></script>
 </body>

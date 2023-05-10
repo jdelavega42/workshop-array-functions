@@ -1,6 +1,6 @@
 <?php
 // INTRODUZIONE
-$double_team = ["Lorenzo", "John", "Hector", "Silvio", "Francesca","John", "Angelo","Lorenzo","Hector", "Francesca", "Angelo", "Silvio"];
+$double_team = ["Lorenzo", "John", "Hector", "Silvio", "Francesca", "John", "Angelo", "Lorenzo", "Hector", "Francesca", "Angelo", "Silvio"];
 $arguments = ['Introduzione','array_unique', 'array_rand', 'shuffle', 'array_combine', 'array_walk', 'Niente, \'cci sua'];
 
 // var_dump($double_team);
@@ -31,10 +31,10 @@ $array_combination = array_combine($dream_team, $selected_arguments);
 
 
 // ARRAY WALK
-function print_result($value, $key)
-{
-    "$key spiega $value <br>";
-};
-$result = array_walk($array_combination, "print_result");
+// function print_result($value, $key)
+// {
+//     echo "$key spiega $value <br>";
+// };
+// $result = array_walk($array_combination, "print_result");
 // var_dump($result);
 ?>
